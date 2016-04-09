@@ -1,14 +1,32 @@
 <head>
-  <title>example</title>
+  <title>La Revolution</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Vote for Bernie!</h1>
 
-  {{> hello}}
+  {{> commentInput}}
+  {{> commentOutput}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="commentInput">
+
+  <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+   </form>
+
+  <button>Submit</button>
+</template>
+
+<template name="commentOutput">
+  {{#with profile}}
+    {{comment}}
+    {{#with name}}
+      <p>{{first}} {{last}}</p>
+    {{/with}}
+  {{/with}}
+  
+  <p>Bernie wins Wyoming!!</p>
+  <p>Bernie's from BROOKLYN!!!</p>
+
 </template>
