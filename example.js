@@ -1,3 +1,6 @@
+Comments = new Mongo.Collection("myComments");
+
+
 if (Meteor.isClient) {
   // counter starts at 0
   Template.commentInput.events({
@@ -6,37 +9,48 @@ if (Meteor.isClient) {
       event.preventDefault();
 
       // Get value from form element
-      const target = event.target;
-      const textValue = target.text.value;
+      const form = event.target;
+      const formTextValue = form.text.value;
 
-      console.log("The value of target is...", target);
-      console.log("The value of textValue is...", textValue);
 
       // Insert a task into the collection
-      Tasks.insert({
-        textValue,
+      Comments.insert({
+        textValue: formTextValue,
         createdAt: new Date(), // current time
       });
 
       // Clear form
-      target.text.value = '';
+      form.text.value = '';
     },
   });
 
-  // Single value - use an expression
-  
-  // Changing single value that needs to be calculated - use a function to calculate + expression
 
-  // Multiple values in a single row of HTML - use a dictonary + "with"
 
-  // Multuple values in Multiple Rows of HTML - use a Collection + "each"
+  // (Single DICTIONARY —> Single Row ) Multiple values in a single row of HTML - use a dictonary + "with"
 
+  // (Multiple layers of values; i.e., Multiple Dictionaries —> Multiple Rows of HTML) ==>  use a Collection + "each
+
+  /*
 var commentOutputHelperDictionary = {profile:
                                      {
                                       comment:"Hey! How are you",
                                       name:{first:"yo", last:"duude"}
                                      }
                                     };
+*/
+
+
+var commentOutputHelperDictionary =  {
+  firstDictionary: function(){
+
+    return Comments.find();
+
+    //return {textValue: "Apple", createdAt:"October"};
+  },
+  last:"duude"
+};
+
+
 
 Template.commentOutput.helpers(commentOutputHelperDictionary);
 

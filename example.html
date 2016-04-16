@@ -3,7 +3,7 @@
 </head>
 
 <body>
-  <h1>Vote for Bernie!</h1>
+  <h1>Vote for Kermit!</h1>
 
   {{> commentInput}}
   {{> commentOutput}}
@@ -13,20 +13,18 @@
 
   <form class="new-task">
         <input type="text" name="text" placeholder="Type to add new tasks" />
+      <button>Submit</button>
+
    </form>
 
-  <button>Submit</button>
 </template>
 
 <template name="commentOutput">
-  {{#with profile}}
-    {{comment}}
-    {{#with name}}
-      <p>{{first}} {{last}}</p>
-    {{/with}}
-  {{/with}}
-  
-  <p>Bernie wins Wyoming!!</p>
-  <p>Bernie's from BROOKLYN!!!</p>
+  {{#each firstDictionary}}
+  <p>{{textValue}} was created at {{createdAt}}</p>
+  {{/each}}
+
+
+
 
 </template>
