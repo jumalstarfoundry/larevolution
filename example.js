@@ -25,21 +25,6 @@ if (Meteor.isClient) {
   });
 
 
-
-  // (Single DICTIONARY —> Single Row ) Multiple values in a single row of HTML - use a dictonary + "with"
-
-  // (Multiple layers of values; i.e., Multiple Dictionaries —> Multiple Rows of HTML) ==>  use a Collection + "each
-
-  /*
-var commentOutputHelperDictionary = {profile:
-                                     {
-                                      comment:"Hey! How are you",
-                                      name:{first:"yo", last:"duude"}
-                                     }
-                                    };
-*/
-
-
 var commentOutputHelperDictionary =  {
   firstDictionary: function(){
 
@@ -53,23 +38,6 @@ var commentOutputHelperDictionary =  {
 
 
 Template.commentOutput.helpers(commentOutputHelperDictionary);
-
-/*
-  Session.setDefault('counter', 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-*/
 
 }
 
