@@ -10,7 +10,7 @@ if (Meteor.isClient) {
 
       // Get value from form element
       const form = event.target;
-      const formTextValue = form.text.value;
+      const formTextValue = form.textInput.value;
 
 
       // Insert a task into the collection
@@ -20,21 +20,16 @@ if (Meteor.isClient) {
       });
 
       // Clear form
-      form.text.value = '';
+      form.textInput.value = '';
     },
   });
 
 
 var commentOutputHelperDictionary =  {
-  firstDictionary: function(){
-
-    return Comments.find();
-
-    //return {textValue: "Apple", createdAt:"October"};
-  },
-  last:"duude"
+  sampleCommentDictionary: function(){
+    return {textValue: "Apple", createdAt:"October 2016"};
+  }
 };
-
 
 
 Template.commentOutput.helpers(commentOutputHelperDictionary);

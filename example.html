@@ -12,7 +12,7 @@
 <template name="commentInput">
 
   <form class="new-task">
-        <input type="text" name="text" placeholder="Type to add new tasks" />
+        <input type="text" name="textInput" placeholder="Type to add new comment" />
       <button>Submit</button>
 
    </form>
@@ -20,9 +20,9 @@
 </template>
 
 <template name="commentOutput">
-  {{#each firstDictionary}}
+  {{#with sampleCommentDictionary}}
   <p>{{textValue}} was created at {{createdAt}}</p>
-  {{/each}}
+  {{/with}}
 
 
 
