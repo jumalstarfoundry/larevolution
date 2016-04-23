@@ -3,9 +3,13 @@
 </head>
 
 <body>
+  {{> loginButtons}}
   <h1>Vote for Kermit!</h1>
-
-  {{> commentInput}}
+  
+  {{#if currentUser}}
+    {{> commentInput}}
+  {{/if}}
+  
   {{> commentOutput}}
 </body>
 
@@ -20,9 +24,9 @@
 </template>
 
 <template name="commentOutput">
-  {{#with sampleCommentDictionary}}
+  {{#each sampleCommentDictionary}}
   <p>{{textValue}} was created at {{createdAt}}</p>
-  {{/with}}
+  {{/each}}
 
 
 
