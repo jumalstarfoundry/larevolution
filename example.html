@@ -4,11 +4,8 @@
 
 <body>
   <h1>Vote for Kermit!</h1>
-  
-  {{#if currentUser}}
-    {{> commentInput}}
-  {{/if}}
-  
+
+  {{> commentInput}}
   {{> commentOutput}}
 </body>
 
@@ -23,9 +20,9 @@
 </template>
 
 <template name="commentOutput">
-  {{#each sampleCommentDictionary}}
+  {{#with sampleCommentDictionary}}
   <p>{{textValue}} was created at {{createdAt}}</p>
-  {{/each}}
+  {{/with}}
 
 
 

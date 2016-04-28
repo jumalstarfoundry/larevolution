@@ -12,7 +12,12 @@ if (Meteor.isClient) {
       const form = event.target;
       const formTextValue = form.textInput.value;
 
-      Meteor.call('commentInsert', formTextValue);
+
+      // Insert a task into the collection
+      Comments.insert({
+        textValue: formTextValue,
+        createdAt: new Date(), // current time
+      });
 
       // Clear form
       form.textInput.value = '';
@@ -22,8 +27,7 @@ if (Meteor.isClient) {
 
 var commentOutputHelperDictionary =  {
   sampleCommentDictionary: function(){
-    
-    return Comments.find();
+    return {textValue: "Apple", createdAt:"October 2016"};
   }
 };
 
@@ -35,16 +39,5 @@ Template.commentOutput.helpers(commentOutputHelperDictionary);
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-   
   });
-  
-  Meteor.methods({
-    commentInsert: function (textVal) {
-      // Insert a task into the collection
-      Comments.insert({
-        textValue: textVal,
-        createdAt: new Date(), // current time
-      });
-    }
-});
 }
